@@ -5,14 +5,14 @@ from string import ascii_letters
 
 # Get salt numbers
 def getSaltByKey(key, message):
-    salt = ''
+    salt = ""
     kHash = md5(key.encode()).hexdigest()
 
     while True:
         for char in kHash:
             if len(salt) == len(message):
                 break
-            if not char in ascii_letters:
+            if char not in ascii_letters:
                 salt += char
 
         if len(salt) == len(message):

@@ -1,17 +1,17 @@
 # Created by LimerBoy
 # Import modules
+import argparse
 import os
 import sys
-import argparse
 
 # Go to current dir
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 try:
-    from tools.crash import CriticalError
     import tools.addons.clean
     import tools.addons.logo
     import tools.addons.winpcap
+    from tools.crash import CriticalError
     from tools.method import AttackMethod
 except ImportError as err:
     CriticalError("Failed import some modules", err)
@@ -32,10 +32,10 @@ parser.add_argument(
     help="Attack method",
 )
 parser.add_argument(
-    "--time", type=int, default=10, metavar="<time>", help="time in secounds"
+    "--time", type=int, default=10, metavar="<time>", help="time in secounds",
 )
 parser.add_argument(
-    "--threads", type=int, default=3, metavar="<threads>", help="threads count (1-200)"
+    "--threads", type=int, default=3, metavar="<threads>", help="threads count (1-200)",
 )
 
 # Get args
@@ -54,6 +54,6 @@ if __name__ == "__main__":
 
     # Run ddos attack
     with AttackMethod(
-        duration=time, name=method, threads=threads, target=target
+        duration=time, name=method, threads=threads, target=target,
     ) as Flood:
         Flood.Start()

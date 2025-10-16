@@ -1,8 +1,10 @@
 # Import modules
-from time import time, sleep
 from threading import Thread
+from time import sleep, time
+
 from colorama import Fore
-from humanfriendly import format_timespan, Spinner
+from humanfriendly import Spinner, format_timespan
+
 from tools.crash import CriticalError
 from tools.ipTools import GetTargetAddress, InternetConnectionCheck
 
@@ -20,23 +22,21 @@ def GetMethodByName(method):
         dir = f"tools.L7.{method.lower()}"
     else:
         raise SystemExit(
-            f"{Fore.RED}[!] {Fore.MAGENTA}Unknown ddos method {repr(method)} selected..{Fore.RESET}"
+            f"{Fore.RED}[!] {Fore.MAGENTA}Unknown ddos method {method!r} selected..{Fore.RESET}",
         )
     module = __import__(dir, fromlist=["object"])
     if hasattr(module, "flood"):
-        method = getattr(module, "flood")
+        method = module.flood
         return method
-    else:
-        CriticalError(
-            f"Method 'flood' not found in {repr(dir)}. Please use python 3.8", "-"
-        )
+    CriticalError(
+        f"Method 'flood' not found in {dir!r}. Please use python 3.8", "-",
+    )
 
 
 """ Class to control attack methods """
 
 
 class AttackMethod:
-
     # Constructor
     def __init__(self, name, duration, threads, target):
         self.name = name
@@ -96,7 +96,7 @@ class AttackMethod:
         for index, thread in enumerate(self.threads):
             thread.join()
             print(
-                f"{Fore.GREEN}[+] {Fore.YELLOW}Stopped thread {index + 1}.{Fore.RESET}"
+                f"{Fore.GREEN}[+] {Fore.YELLOW}Stopped thread {index + 1}.{Fore.RESET}",
             )
 
     # Start ddos attack
@@ -108,7 +108,7 @@ class AttackMethod:
         duration = format_timespan(self.duration)
         print(
             f"{Fore.MAGENTA}[?] {Fore.BLUE}Starting attack to {target} using method {self.name}.{Fore.RESET}\n"
-            f"{Fore.MAGENTA}[?] {Fore.BLUE}Attack will be stopped after {Fore.MAGENTA}{duration}{Fore.BLUE}.{Fore.RESET}"
+            f"{Fore.MAGENTA}[?] {Fore.BLUE}Attack will be stopped after {Fore.MAGENTA}{duration}{Fore.BLUE}.{Fore.RESET}",
         )
         self.is_running = True
         try:
@@ -116,7 +116,7 @@ class AttackMethod:
         except KeyboardInterrupt:
             self.is_running = False
             print(
-                f"\n{Fore.RED}[!] {Fore.MAGENTA}Ctrl+C detected. Stopping {self.threads_count} threads..{Fore.RESET}"
+                f"\n{Fore.RED}[!] {Fore.MAGENTA}Ctrl+C detected. Stopping {self.threads_count} threads..{Fore.RESET}",
             )
             # Wait all threads for stop
             for thread in self.threads:

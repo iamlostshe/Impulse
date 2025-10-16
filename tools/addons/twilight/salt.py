@@ -5,13 +5,13 @@ from random import choice
 # Add salt to data
 def protect(message, salt):
     # Variables
-    eData = ''
+    eData = ""
     salt = list(salt)
     saltChars = []
 
     # Add salt characters to list
     for char in message:
-        if not char in saltChars:
+        if char not in saltChars:
             saltChars.append(char)
 
     # Add salt to message
@@ -27,11 +27,11 @@ def protect(message, salt):
 def unprotect(message, salt):
     # Variables
     p = 0
-    dData = ''
+    dData = ""
 
     # Remove salt characters from string
     for secretSalt in salt:
-        message = message[int(secretSalt) + p:]
+        message = message[int(secretSalt) + p :]
         # If not data - stop
         if not message:
             break

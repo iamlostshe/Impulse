@@ -1,6 +1,6 @@
 # Import modules
 import tools.SMS.sendRequest as request
-import tools.SMS.randomData as randomData
+from tools.SMS import randomData
 
 __services = request.getServices()
 

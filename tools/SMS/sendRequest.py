@@ -1,19 +1,21 @@
 # Import modules
 import json
+
 import requests
 from colorama import Fore
-import tools.SMS.randomData as randomData
+
+from tools.SMS import randomData
 
 
 # Read services file
 def getServices(file="tools/SMS/services.json"):
-    with open(file, "r", encoding="utf-8", errors="ignore") as services:
+    with open(file, encoding="utf-8", errors="ignore") as services:
         return json.load(services)["services"]
 
 
 # Read proxy list
 def getProxys(file="tools/SMS/proxy.json"):
-    with open(file, "r") as proxys:
+    with open(file) as proxys:
         return json.load(proxys)["proxy"]
 
 
@@ -49,6 +51,7 @@ headers = {
     "Accept-Encoding": "gzip, deflate, br",
     "User-agent": randomData.random_useragent(),
 }
+
 
 # Service class
 # parseData, SendSMS

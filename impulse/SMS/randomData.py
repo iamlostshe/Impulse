@@ -2,7 +2,12 @@ import json
 import random
 import string
 
-mails = (
+from fake_useragent import UserAgent
+
+ua = UserAgent()
+
+
+MAILS = (
     "mail.ru",
     "inbox.ru",
     "list.ru",
@@ -15,48 +20,47 @@ mails = (
 )
 
 
-# Get random service
-def random_service(list):
-    return random.choice(list)
-
-
-# Create random name
-def random_name():
+def random_name() -> str:
+    """Create random name."""
     with open("impulse/SMS/names.json") as names:
-        names = json.load(names)["names"]
-    return random.choice(names)
+        return random.choice(json.load(names)["names"])
 
 
-# Create random suffix for email
-# %random_name%SUFFIX@%random_email%
-def random_suffix(int_range=4):
-    numbers = []
-    for _ in range(int_range):
-        numbers.append(str(random.randint(1, 9)))
-    return "".join(numbers)
+def random_suffix(int_range: int | None = 4) -> str:
+    """Create random suffix for email.
+
+    %random_name%SUFFIX@%random_email%
+    """
+    return "".join(
+        [str(random.randint(1, 9)) for _ in range(int_range)],
+    )
 
 
-# Create random email by name, suffix, mail
-# Example: Jefferson3715@gmail.com
-def random_email():
-    return random_name() + random_suffix() + "@" + random.choice(mails)
+def random_email() -> str:
+    """Create random email by name, suffix, mail.
+
+    Example: Jefferson3715@gmail.com
+    """
+    return random_name() + random_suffix() + "@" + random.choice(MAILS)
 
 
-# Create random password
-# %random_name%%random_suffix%
-def random_password():
-    return random_name() + random_suffix(int_range=10)
+def random_password() -> str:
+    """Create random password.
+
+    %random_name%%random_suffix%
+    """
+    return random_name() + random_suffix(10)
 
 
-# Create random token
-# %token%
-def random_token():
+def random_token() -> str:
+    """Create random token.
+
+    %token%
+    """
     letters = string.ascii_letters + string.digits
     return "".join(random.choice(letters) for _ in range(random.randint(20, 50)))
 
 
-# Get random user agent
-def random_useragent():
-    with open("impulse/SMS/user_agents.json") as agents:
-        user_agents = json.load(agents)["agents"]
-    return random.choice(user_agents)
+def random_useragent() -> str:
+    """Get random user agent."""
+    return ua.random

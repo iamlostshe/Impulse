@@ -1,24 +1,22 @@
-import json
 import random
 
+from fake_useragent import UserAgent
 
-# Get random IP
-def random_IP():
-    ip = []
-    for _ in range(4):
-        ip.append(str(random.randint(1, 255)))
+ua = UserAgent()
+
+
+def random_IP() -> str:
+    """Get random IP."""
+    ip = [str(random.randint(1, 255)) for _ in range(4)]
     return ".".join(ip)
 
 
-# Get random referer
-def random_referer():
+def random_referer() -> str:
+    """Get random referer."""
     with open("impulse/L7/referers.txt") as referers:
-        referers = referers.readlines()
-    return random.choice(referers)
+        return random.choice(referers)
 
 
-# Get random user agent
-def random_useragent():
-    with open("impulse/L7/user_agents.json") as agents:
-        user_agents = json.load(agents)["agents"]
-    return random.choice(user_agents)
+def random_useragent() -> str:
+    """Get random user agent."""
+    return ua.random

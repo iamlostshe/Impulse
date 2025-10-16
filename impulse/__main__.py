@@ -32,10 +32,18 @@ parser.add_argument(
     help="Attack method",
 )
 parser.add_argument(
-    "--time", type=int, default=10, metavar="<time>", help="time in secounds",
+    "--time",
+    type=int,
+    default=10,
+    metavar="<time>",
+    help="time in secounds",
 )
 parser.add_argument(
-    "--threads", type=int, default=3, metavar="<threads>", help="threads count (1-200)",
+    "--threads",
+    type=int,
+    default=3,
+    metavar="<threads>",
+    help="threads count (1-200)",
 )
 
 # Get args
@@ -54,6 +62,9 @@ if __name__ == "__main__":
 
     # Run ddos attack
     with AttackMethod(
-        duration=time, name=method, threads=threads, target=target,
+        duration=time,
+        name=method,
+        threads=threads,
+        target=target,
     ) as Flood:
         Flood.Start()

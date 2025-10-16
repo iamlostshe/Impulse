@@ -29,7 +29,8 @@ def GetMethodByName(method):
         method = module.flood
         return method
     CriticalError(
-        f"Method 'flood' not found in {dir!r}. Please use python 3.8", "-",
+        f"Method 'flood' not found in {dir!r}. Please use python 3.8",
+        "-",
     )
 
 

@@ -4,7 +4,7 @@ import socket
 
 from colorama import Fore
 
-from impulse import randomData
+from impulse import random_data
 
 
 # Init socket
@@ -18,7 +18,7 @@ def create_socket(target):
             f"GET /?{random.randint(0, 2000)} HTTP/1.1\r\n".encode(),
         )
         sock.send(
-            f"User-Agent: {randomData.random_useragent()}\r\n".encode(),
+            f"User-Agent: {random_data.random_useragent()}\r\n".encode(),
         )
         sock.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
     except TimeoutError:

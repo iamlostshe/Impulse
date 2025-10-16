@@ -4,12 +4,12 @@ import random
 import requests
 from colorama import Fore
 
-from impulse import randomData
+from impulse import random_data
 
 # Load user agents
 user_agents = []
 for _ in range(30):
-    user_agents.append(randomData.random_useragent())
+    user_agents.append(random_data.random_useragent())
 
 # Headers
 headers = {

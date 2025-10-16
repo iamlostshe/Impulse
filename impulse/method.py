@@ -6,7 +6,7 @@ from colorama import Fore
 from humanfriendly import Spinner, format_timespan
 
 from impulse.crash import CriticalError
-from impulse.ipTools import GetTargetAddress, InternetConnectionCheck
+from impulse.ip_tools import GetTargetAddress, InternetConnectionCheck
 
 """ Find & import ddos method """
 

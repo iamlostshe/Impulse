@@ -4,7 +4,7 @@ import json
 import requests
 from colorama import Fore
 
-from impulse.SMS import randomData
+from impulse.SMS import random_data
 
 
 # Read services file
@@ -49,7 +49,7 @@ headers = {
     "Pragma": "no-cache",
     "Cache-Control": "no-cache",
     "Accept-Encoding": "gzip, deflate, br",
-    "User-agent": randomData.random_useragent(),
+    "User-agent": random_data.random_useragent(),
 }
 
 
@@ -81,10 +81,10 @@ class Service:
             "'": '"',
             "%phone%": phone,
             "%phone5%": transformPhone(phone, 5),
-            "%name%": randomData.random_name(),
-            "%email%": randomData.random_email(),
-            "%password%": randomData.random_password(),
-            "%token%": randomData.random_token(),
+            "%name%": random_data.random_name(),
+            "%email%": random_data.random_email(),
+            "%password%": random_data.random_password(),
+            "%token%": random_data.random_token(),
         }.items():
             if old in payload:
                 payload = payload.replace(old, new)

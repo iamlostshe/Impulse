@@ -1,0 +1,14 @@
+[project]
+name = "impulse"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "argparse>=1.4.0",
+    "colorama>=0.4.6",
+    "humanfriendly>=10.0",
+    "requests>=2.32.5",
+    "scapy>=2.6.1",
+    "wget>=3.2",
+]

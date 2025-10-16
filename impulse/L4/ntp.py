@@ -1,12 +1,12 @@
-# Import modules
 import random
+from pathlib import Path
 from socket import gaierror
 
 from colorama import Fore
 from scapy.all import IP, UDP, Raw, send
 
 # Load NTP servers list
-with open("impulse/L4/ntp_servers.txt") as f:
+with Path("impulse/L4/ntp_servers.txt").open() as f:
     ntp_servers = f.readlines()
 
 # Payload

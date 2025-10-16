@@ -1,4 +1,5 @@
 import random
+from pathlib import Path
 
 from fake_useragent import UserAgent
 
@@ -13,7 +14,7 @@ def random_IP() -> str:
 
 def random_referer() -> str:
     """Get random referer."""
-    with open("impulse/L7/referers.txt") as referers:
+    with Path("impulse/L7/referers.txt").open() as referers:
         return random.choice(referers)
 
 

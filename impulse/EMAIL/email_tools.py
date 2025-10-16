@@ -1,8 +1,8 @@
-# Import modules
 import json
 import os
 import sys
 from getpass import getpass, getuser
+from pathlib import Path
 from smtplib import SMTP, SMTPAuthenticationError
 
 from colorama import Fore
@@ -17,10 +17,8 @@ smtp_server = "smtp.gmail.com"
 smtp_port = 587
 
 
-""" Write sender email """
-
-
 def WriteSenderEmail():
+    """Write sender email."""
     username = input(
         f"{Fore.BLUE}[?] {Fore.MAGENTA}Please enter your gmail address from which messages will be sent: {Fore.BLUE}",
     )
@@ -49,7 +47,7 @@ def WriteSenderEmail():
     confirm = confirm.upper() in ("Y", "YES", "1", "TRUE")
     if confirm:
         # Write database
-        with open(sender_email_database, "w") as db:
+        with Path(sender_email_database).open("w") as db:
             json.dump(
                 {
                     "username": Encrypt(username, twilight_encryption_key),
@@ -64,15 +62,15 @@ def WriteSenderEmail():
     return [server, username]
 
 
-""" Read sender email """
+def ReadSenderEmail() -> list:
+    """Read sender email."""
+    p = Path(sender_email_database)
 
-
-def ReadSenderEmail():
     # Create if not exists
-    if not os.path.exists(sender_email_database):
+    if not p.exists():
         return WriteSenderEmail()
     # Read database
-    with open(sender_email_database) as db:
+    with p.open() as db:
         auth = json.load(db)
         auth["username"] = Decrypt(auth["username"], twilight_encryption_key)
         auth["password"] = Decrypt(auth["password"], twilight_encryption_key)

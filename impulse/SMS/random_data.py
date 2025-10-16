@@ -1,6 +1,7 @@
 import json
 import random
 import string
+from pathlib import Path
 
 from fake_useragent import UserAgent
 
@@ -22,7 +23,7 @@ MAILS = (
 
 def random_name() -> str:
     """Create random name."""
-    with open("impulse/SMS/names.json") as names:
+    with Path("impulse/SMS/names.json").open() as names:
         return random.choice(json.load(names)["names"])
 
 

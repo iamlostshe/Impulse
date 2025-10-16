@@ -1,11 +1,6 @@
 # Created by LimerBoy
-# Import modules
 import argparse
-import os
 import sys
-
-# Go to current dir
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 try:
     import impulse.addons.clean

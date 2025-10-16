@@ -1,17 +1,19 @@
 # :bomb: Impulse
-## Modern Denial-of-service ToolKit
 
+## Modern Denial-of-service ToolKit
 
 <p align="center">
   <img src="https://i.ibb.co/rFct6QX/LOGO.png">
 </p>
 
 # :computer: Main window
+
 <p align="center">
   <img src="https://i.ibb.co/8c1fb1Q/Impulse-Main.png">
 </p>
 
 # :satellite: Methods:
+
 | Method               |   Target   | Description |
 | ---------------------| -----------|-------------|
 | SMS                  | PHONE     | Sends a massive amount of SMS messages and calls to a single target |
@@ -26,6 +28,7 @@
 | Memcached            | IP:PORT    | A memcached distributed denial-of-service (DDoS) attack is a type of cyber attack in which an attacker attempts to overload a targeted victim with internet traffic. The attacker spoofs requests to a vulnerable UDP memcached* server, which then floods a targeted victim with internet traffic, potentially overwhelming the victim’s resources. While the target’s internet infrastructure is overloaded, new requests cannot be processed and regular traffic is unable to access the internet resource, resulting in denial-of-service. |
 
 # :gift: Installation:
+
 * Windows:
   * Download Python 3.8 from [here](https://www.python.org/downloads/release/python-38)
   * Launch installer, click `add python to PATH`
@@ -51,13 +54,17 @@
   * `python3 impulse.py --help`
 
 # :phone: Example SMS & Call flood:
-```python3 impulse.py --method SMS --time 20 --threads 15 --target +380123456789```
+
+```
+python3 impulse.py --method SMS --time 20 --threads 15 --target +380123456789
+```
 
 <p align="center">
   <img src="https://i.ibb.co/KmPnV9f/Impulse-SMS.png">
 </p>
 
 # :moneybag: Donate:
+
 * BTC - `bc1q3m8t7shcge2smsxwm2fnwlet3j8km9q6jeqw0l`
 * LTC - `LMcv6gt2YHDFR6t4Mb8SimKL4BsRzUpzKS`
 * TRX - `TCEo2JkogrpMkQUvEDZs2UhtYi7YgYbrV3`

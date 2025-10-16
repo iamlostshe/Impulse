@@ -1,33 +1,38 @@
-# Import modules
 import json
+from pathlib import Path
 
 import requests
 from colorama import Fore
 
 from impulse.SMS import random_data
 
+SERVICES_PATH = "impulse/SMS/services.json"
+PROXY_PATH = "impulse/SMS/proxy.json"
 
-# Read services file
-def getServices(file="impulse/SMS/services.json"):
-    with open(file, encoding="utf-8", errors="ignore") as services:
+
+def getServices(filename: str | None = SERVICES_PATH) -> str:
+    """Read services file."""
+    with Path(filename).open(encoding="utf-8", errors="ignore") as services:
         return json.load(services)["services"]
 
 
-# Read proxy list
-def getProxys(file="impulse/SMS/proxy.json"):
-    with open(file) as proxys:
+def getProxys(filename: str | None = PROXY_PATH) -> str:
+    """Read proxy list."""
+    with Path(filename).open() as proxys:
         return json.load(proxys)["proxy"]
 
 
-# Get domain by big url
-def getDomain(url):
+def getDomain(url: str):
+    """Get domain by big url."""
     return url.split("/")[2]
 
 
-# Make for other services
-def transformPhone(phone, i):
-    # Pizzahut
-    if i == 5:
+def transformPhone(phone: str, i: int):
+    """Make for other services (for Pizzahut).
+
+    Example: '+7 (915) 350 99 08'
+    """
+    if i == 5:  # noqa: PLR2004
         return (
             "+"
             + phone[0]
@@ -39,7 +44,8 @@ def transformPhone(phone, i):
             + phone[7:9]
             + " "
             + phone[9:11]
-        )  # '+7 (915) 350 99 08'
+        )
+    return None
 
 
 # Headers for request

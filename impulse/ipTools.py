@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 import requests
 from colorama import Fore
 
-from tools.EMAIL.emailTools import ReadSenderEmail
+from impulse.EMAIL.emailTools import ReadSenderEmail
 
 """ Check if site is under CloudFlare protection """
 

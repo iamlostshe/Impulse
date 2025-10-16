@@ -5,7 +5,7 @@ from colorama import Fore
 from scapy.all import IP, UDP, Raw, send
 
 # Load MEMCACHED servers list
-with open("tools/L4/memcached_servers.txt") as f:
+with open("impulse/L4/memcached_servers.txt") as f:
     memcached_servers = f.readlines()
 
 # Payload

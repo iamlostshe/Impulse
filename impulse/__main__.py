@@ -8,11 +8,11 @@ import sys
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 try:
-    import tools.addons.clean
-    import tools.addons.logo
-    import tools.addons.winpcap
-    from tools.crash import CriticalError
-    from tools.method import AttackMethod
+    import impulse.addons.clean
+    import impulse.addons.logo
+    import impulse.addons.winpcap
+    from impulse.crash import CriticalError
+    from impulse.method import AttackMethod
 except ImportError as err:
     CriticalError("Failed import some modules", err)
     sys.exit(1)

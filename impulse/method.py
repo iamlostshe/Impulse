@@ -5,21 +5,21 @@ from time import sleep, time
 from colorama import Fore
 from humanfriendly import Spinner, format_timespan
 
-from tools.crash import CriticalError
-from tools.ipTools import GetTargetAddress, InternetConnectionCheck
+from impulse.crash import CriticalError
+from impulse.ipTools import GetTargetAddress, InternetConnectionCheck
 
 """ Find & import ddos method """
 
 
 def GetMethodByName(method):
     if method == "SMS":
-        dir = "tools.SMS.main"
+        dir = "impulse.SMS.main"
     elif method == "EMAIL":
-        dir = "tools.EMAIL.main"
+        dir = "impulse.EMAIL.main"
     elif method in ("SYN", "UDP", "NTP", "POD", "ICMP", "MEMCACHED"):
-        dir = f"tools.L4.{method.lower()}"
+        dir = f"impulse.L4.{method.lower()}"
     elif method in ("HTTP", "SLOWLORIS"):
-        dir = f"tools.L7.{method.lower()}"
+        dir = f"impulse.L7.{method.lower()}"
     else:
         raise SystemExit(
             f"{Fore.RED}[!] {Fore.MAGENTA}Unknown ddos method {method!r} selected..{Fore.RESET}",

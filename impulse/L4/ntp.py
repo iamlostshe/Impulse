@@ -6,7 +6,7 @@ from colorama import Fore
 from scapy.all import IP, UDP, Raw, send
 
 # Load NTP servers list
-with open("tools/L4/ntp_servers.txt") as f:
+with open("impulse/L4/ntp_servers.txt") as f:
     ntp_servers = f.readlines()
 
 # Payload

@@ -4,17 +4,17 @@ import json
 import requests
 from colorama import Fore
 
-from tools.SMS import randomData
+from impulse.SMS import randomData
 
 
 # Read services file
-def getServices(file="tools/SMS/services.json"):
+def getServices(file="impulse/SMS/services.json"):
     with open(file, encoding="utf-8", errors="ignore") as services:
         return json.load(services)["services"]
 
 
 # Read proxy list
-def getProxys(file="tools/SMS/proxy.json"):
+def getProxys(file="impulse/SMS/proxy.json"):
     with open(file) as proxys:
         return json.load(proxys)["proxy"]
 

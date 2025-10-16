@@ -12,13 +12,13 @@ def random_IP():
 
 # Get random referer
 def random_referer():
-    with open("tools/L7/referers.txt") as referers:
+    with open("impulse/L7/referers.txt") as referers:
         referers = referers.readlines()
     return random.choice(referers)
 
 
 # Get random user agent
 def random_useragent():
-    with open("tools/L7/user_agents.json") as agents:
+    with open("impulse/L7/user_agents.json") as agents:
         user_agents = json.load(agents)["agents"]
     return random.choice(user_agents)

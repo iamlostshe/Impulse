@@ -4,7 +4,7 @@ import random
 import requests
 from colorama import Fore
 
-from tools import randomData
+from impulse import randomData
 
 # Load user agents
 user_agents = []

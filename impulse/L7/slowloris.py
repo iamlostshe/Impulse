@@ -4,7 +4,7 @@ import socket
 
 from colorama import Fore
 
-from tools import randomData
+from impulse import randomData
 
 
 # Init socket

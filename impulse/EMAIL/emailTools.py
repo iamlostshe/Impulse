@@ -8,10 +8,10 @@ from smtplib import SMTP, SMTPAuthenticationError
 from colorama import Fore
 
 # https://github.com/LimerBoy/Twilight-Algoritm
-from tools.addons.twilight.twilight import Decrypt, Encrypt
+from impulse.addons.twilight.twilight import Decrypt, Encrypt
 
 # File with login data
-sender_email_database = "tools/EMAIL/sender.json"
+sender_email_database = "impulse/EMAIL/sender.json"
 twilight_encryption_key = getuser() + ":TWILIGHT"
 smtp_server = "smtp.gmail.com"
 smtp_port = 587

@@ -1,7 +1,7 @@
 # Import modules
-import tools.addons.twilight.hash as Hash
-import tools.addons.twilight.salt as Salt
-import tools.addons.twilight.xor as Xor
+import impulse.addons.twilight.hash as Hash
+import impulse.addons.twilight.salt as Salt
+import impulse.addons.twilight.xor as Xor
 
 
 # Encrypt function
